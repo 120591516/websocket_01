@@ -86,7 +86,7 @@
 	</div>
 	</div>
 	<div id="userList"
-		style="border: 1px solid black; width: 100px; height: 400px; float: left;"></div>
+		style="border: 1px solid black; width: 120px; height: 400px; float: left;"></div>
 
 
 </body>

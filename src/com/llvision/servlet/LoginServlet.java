@@ -34,7 +34,6 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		String username= request.getParameter("username");
-		
 		request.getSession().setAttribute("username", username);
 		
 		response.sendRedirect("chat.jsp");

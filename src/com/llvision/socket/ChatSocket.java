@@ -36,15 +36,17 @@ public class ChatSocket {
 	public  void open(Session  session){
 			this.session=session;
 			sockets.add(this);
+			session.getQueryString();
 			
-			String  queryString = session.getQueryString();
+			Map<String, List<String>>  queryString = session.getRequestParameterMap();
+			String userName = queryString.get("username").get(0);
 			System.out.println(queryString);
-			this.username = queryString.substring(queryString.indexOf("=")+1);
+			this.username = userName;
 			names.add(this.username);
 			this.map.put(this.username, session);
 			
 			Message   message=new Message();
-			message.setAlert(this.username+"进入聊天室！！");
+			message.setAlert("<font color=red>"+this.username+"</font>进入聊天室！！");
 			message.setNames(names);
 			
 			broadcast(sockets, gson.toJson(message) );
